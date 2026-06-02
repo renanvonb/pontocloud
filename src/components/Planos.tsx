@@ -48,8 +48,7 @@ export default function Planos() {
                 src="/imgs/dashboard-pontocloud.svg"
                 alt="Dashboard PontoCloud"
                 className="w-full h-auto rounded-tl-[12px]"
-              style={{ border: '2px solid rgba(255,255,255,0.10)' }}
-                style={{ maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)' }}
+              style={{ border: '2px solid rgba(255,255,255,0.10)', maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)' }}
               />
               <div className="absolute inset-0 rounded-tl-[12px]" style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(1,78,128,0.30) 100%)' }} />
             </div>
