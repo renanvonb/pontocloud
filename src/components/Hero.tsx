@@ -28,25 +28,24 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-[152px] bg-white"
-      style={{ minHeight: '900px' }}
+      className="relative pt-[100px] md:pt-[152px] bg-white"
+      style={{ minHeight: 'auto' }}
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none hero-bg-zoom"
-        style={{ backgroundImage: 'url(/imgs/hero-background-v3.png)' }}
+        style={{ backgroundImage: 'url(/imgs/bg-hero-v4.png)' }}
       />
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-[1]" />
       <div ref={ref} className="reveal relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <h1 className="text-[64px] font-medium text-black leading-[1.05] tracking-[-0.02em] mb-6">
+        <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-medium text-black leading-[1.05] tracking-[-0.02em] mb-6">
           Conectando
           <br />
           seu tempo ao futuro
         </h1>
 
-        <p className="text-foreground/60 text-[18px] font-inter tracking-[-0.01em] max-w-xl mx-auto leading-relaxed mb-[88px]">
+        <p className="text-foreground/60 text-[16px] md:text-[18px] font-inter tracking-[-0.01em] max-w-xl mx-auto leading-relaxed mb-12 md:mb-[88px]">
           Conte com a tecnologia e assertividade da PontoCloud®
-          <br />
-          para elevar o patamar da empresa para atingir o próximo nível.
+          {' '}para elevar o patamar da empresa para atingir o próximo nível.
         </p>
       </div>
 

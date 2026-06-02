@@ -31,7 +31,6 @@ export default function Home() {
       {/* Dúvidas */}
       <FAQ />
       {/* Planos */}
-      <hr className="border-border" />
       <Planos />
       {/* Revenda */}
       <CTABanner />

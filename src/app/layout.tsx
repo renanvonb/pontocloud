@@ -10,11 +10,14 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'PontoCloud® — Controle de ponto simples para PMEs',
+  title: 'PontoCloud®',
   description:
     'Ponto simples de registrar, fácil de tratar e rápido de fechar. Controle de ponto eletrônico para PMEs brasileiras.',
+  icons: {
+    icon: '/imgs/favicon-site-pontocloud.png',
+  },
   openGraph: {
-    title: 'PontoCloud® — Controle de ponto simples para PMEs',
+    title: 'PontoCloud®',
     description: 'Ponto simples de registrar, fácil de tratar e rápido de fechar.',
     type: 'website',
   },

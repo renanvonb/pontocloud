@@ -14,7 +14,7 @@ section[id] {
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
-    --primary: 199 98% 39%;
+    --primary: 199 89% 48%;
     --primary-foreground: 0 0% 100%;
     --secondary: 220 14% 96%;
     --secondary-foreground: 0 0% 0%;
@@ -31,7 +31,7 @@ section[id] {
 
     --token-black: #000000;
     --token-white: #ffffff;
-    --token-blue: #0284C7;
+    --token-blue: #0EA5E9;
     --token-blue-light: #38BDF8;
     --token-blue-bg: #E0F2FE;
     --token-muted: #6d6d6d;
@@ -109,6 +109,17 @@ section[id] {
   .reveal-down.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(48px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .hero-bg-fade {

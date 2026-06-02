@@ -1,3 +1,8 @@
+'use client'
+
+import * as React from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
+import { X } from 'lucide-react'
 import Logo from './Logo'
 import { Separator } from '@/components/ui/separator'
 
@@ -17,75 +22,126 @@ function InstagramIcon() {
   )
 }
 
-const columns = [
-  {
-    title: 'Lorem',
-    links: [
-      { label: 'Ipsum', href: '#' },
-      { label: 'Ipsum', href: '#' },
-      { label: 'Ipsum', href: '#' },
-    ],
-  },
-  {
-    title: 'Lorem',
-    links: [
-      { label: 'Ipsum', href: '#' },
-      { label: 'Ipsum', href: '#' },
-    ],
-  },
-  {
-    title: 'Lorem',
-    links: [
-      { label: 'Ipsum', href: '#' },
-      { label: 'Ipsum', href: '#' },
-    ],
-  },
-  {
-    title: 'Lorem',
-    links: [
-      { label: 'Ipsum', href: '#' },
-      { label: 'Ipsum', href: '#' },
-    ],
-  },
-]
+function LegalDialog({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger asChild>
+        <button className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors cursor-pointer">
+          {title}
+        </button>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <Dialog.Content
+          className="fixed left-1/2 top-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6 md:p-10 shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
+          onOpenAutoFocus={(e) => e.preventDefault()}
+        >
+          <div className="flex items-center justify-between mb-6">
+            <Dialog.Title className="text-xl font-medium tracking-[-0.02em] font-[family-name:var(--font-geist-sans)]">
+              {title}
+            </Dialog.Title>
+            <Dialog.Close className="rounded-lg p-2 opacity-50 hover:opacity-100 hover:bg-muted transition-all focus:outline-none">
+              <X className="h-6 w-6" />
+              <span className="sr-only">Fechar</span>
+            </Dialog.Close>
+          </div>
+          <div className="overflow-y-auto max-h-[60vh] pr-2 text-[16px] font-normal text-muted-foreground font-inter leading-relaxed [&_strong]:font-normal [&_strong]:text-foreground">
+            {children}
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  )
+}
 
 export default function Footer() {
   return (
     <footer className="bg-card border-t border-border pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-10 pb-12">
-          <div className="col-span-2">
-            <Logo />
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 pb-12">
+          <div>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="cursor-pointer">
+              <Logo />
+            </button>
             <p className="text-muted-foreground text-sm mt-4 mb-6 max-w-xs leading-relaxed font-inter">
-              Seu aliado completo para simplificar a rotina de registro e controle da sua empresa
+              Seu aliado completo para simplificar a rotina de registro e controle de ponto da sua empresa.
             </p>
             <div className="flex gap-3">
-              <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
+              <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer">
                 <WhatsAppIcon />
               </span>
-              <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
+              <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer">
                 <InstagramIcon />
               </span>
             </div>
           </div>
-
-          {columns.map((col) => (
-            <div key={col.title + col.links[0].label + Math.random()}>
-              <h5 className="font-inter font-medium text-sm mb-4">{col.title}</h5>
+          <div className="flex flex-wrap gap-10 md:gap-24">
+            <div>
+              <h5 className="text-sm font-medium font-inter mb-4">Páginas</h5>
               <ul className="flex flex-col gap-3">
-                {col.links.map((link, i) => (
-                  <li key={i}>
-                    <a href={link.href} className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">{link.label}</a>
-                  </li>
-                ))}
+                <li><a href="#beneficios" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Benefícios</a></li>
+                <li><a href="#recursos" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Recursos</a></li>
+                <li><a href="#duvidas" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Dúvidas</a></li>
               </ul>
             </div>
-          ))}
+            <div>
+              <h5 className="text-sm font-medium font-inter mb-4">Informação</h5>
+              <ul className="flex flex-col gap-3">
+                <li><a href="#revenda" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Seja uma revenda</a></li>
+                <li>
+                  <LegalDialog title="Termos de uso">
+                    <div className="space-y-5">
+                      {[
+                        ['1. Aceitação dos Termos', 'Ao acessar ou utilizar a plataforma PontoCloud®, você concorda com estes Termos de Uso. Se não concordar, não utilize o serviço.'],
+                        ['2. Descrição do Serviço', 'A PontoCloud® é uma plataforma de controle de ponto eletrônico voltada para pequenas e médias empresas brasileiras. O serviço inclui registro de jornada, apuração, relatórios fiscais e gestão de colaboradores.'],
+                        ['3. Cadastro e Responsabilidades', 'O contratante é responsável pela veracidade das informações cadastradas, pelo sigilo das credenciais de acesso e pela utilização adequada da plataforma por seus colaboradores e gestores.'],
+                        ['4. Uso Permitido', 'O serviço destina-se exclusivamente ao controle de jornada de trabalho em conformidade com a legislação trabalhista brasileira (CLT e Portaria MTE nº 671/2021). É vedado o uso para fins ilícitos ou que violem direitos de terceiros.'],
+                        ['5. Pagamento e Cancelamento', 'Os planos são cobrados mensalmente. O cancelamento pode ser solicitado a qualquer momento e terá efeito ao final do período vigente, sem reembolso proporcional.'],
+                        ['6. Disponibilidade', 'A PontoCloud® empenha esforços para manter a plataforma disponível 24/7, mas não garante disponibilidade ininterrupta. Manutenções programadas serão comunicadas com antecedência.'],
+                        ['7. Limitação de Responsabilidade', 'A PontoCloud® não se responsabiliza por danos decorrentes de uso indevido da plataforma, falhas de conexão do contratante ou ações de terceiros não autorizados.'],
+                        ['8. Alterações', 'Estes termos podem ser atualizados a qualquer momento. Notificaremos os usuários por e-mail com antecedência mínima de 15 dias antes de alterações relevantes.'],
+                        ['9. Foro', 'Fica eleito o foro da comarca de São Paulo/SP para dirimir quaisquer controvérsias oriundas destes Termos, com renúncia a qualquer outro, por mais privilegiado que seja.'],
+                      ].map(([title, body]) => (
+                        <div key={title}><p className="text-foreground mb-1">{title}</p><p>{body}</p></div>
+                      ))}
+                    </div>
+                  </LegalDialog>
+                </li>
+                <li>
+                  <LegalDialog title="Políticas de privacidade">
+                    <div className="space-y-5">
+                      {[
+                        ['1. Responsável pelo Tratamento', 'A PontoCloud® é a controladora dos dados pessoais coletados por meio de sua plataforma, comprometendo-se com o tratamento responsável conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).'],
+                        ['2. Dados Coletados', 'Coletamos dados de cadastro da empresa contratante (razão social, CNPJ, e-mail, telefone), dados dos colaboradores inseridos pelo contratante (nome, CPF, horários de trabalho, registros de ponto) e dados de acesso e navegação na plataforma.'],
+                        ['3. Finalidade do Tratamento', 'Os dados são utilizados exclusivamente para: prestação do serviço de controle de ponto; geração de relatórios fiscais exigidos pela legislação trabalhista; comunicações relacionadas ao serviço; e melhoria contínua da plataforma.'],
+                        ['4. Compartilhamento de Dados', 'Não vendemos nem compartilhamos dados pessoais com terceiros para fins comerciais. Podemos compartilhar com prestadores de serviços essenciais à operação da plataforma (hospedagem, infraestrutura), sempre sob obrigação de confidencialidade.'],
+                        ['5. Segurança', 'Adotamos medidas técnicas e organizacionais para proteger os dados contra acesso não autorizado, perda ou destruição, incluindo criptografia em trânsito (TLS) e em repouso, controle de acesso por perfis e monitoramento contínuo.'],
+                        ['6. Retenção de Dados', 'Os dados são mantidos pelo período contratual e por até 5 anos após o encerramento, conforme exigências fiscais e trabalhistas brasileiras. Após esse prazo, são anonimizados ou excluídos.'],
+                        ['7. Direitos do Titular', 'Nos termos da LGPD, os titulares podem solicitar: confirmação de tratamento, acesso aos dados, correção, portabilidade, eliminação e revogação de consentimento. Solicitações devem ser enviadas para privacidade@pontocloud.com.br.'],
+                        ['8. Cookies', 'Utilizamos cookies essenciais para funcionamento da plataforma e cookies analíticos para entender o uso do serviço. Não utilizamos cookies de rastreamento para fins publicitários.'],
+                        ['9. Alterações nesta Política', 'Esta política pode ser atualizada para refletir mudanças legais ou melhorias no serviço. Informaremos os usuários por e-mail em caso de alterações relevantes.'],
+                      ].map(([title, body]) => (
+                        <div key={title}><p className="text-foreground mb-1">{title}</p><p>{body}</p></div>
+                      ))}
+                    </div>
+                  </LegalDialog>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-sm font-medium font-inter mb-4">Acessos</h5>
+              <ul className="flex flex-col gap-3">
+                <li><a href="https://app.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área do cliente</a></li>
+                <li><a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área de revenda</a></li>
+                <li><a href="https://admin.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área administrativa</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <Separator className="mb-8" />
 
-        <p className="text-sm text-muted-foreground text-center font-inter">
+        <p className="text-sm text-muted-foreground font-inter text-center">
           © PontoCloud® 2026. Todos os direitos reservados.
         </p>
       </div>

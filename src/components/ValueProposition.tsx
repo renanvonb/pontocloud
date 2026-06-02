@@ -33,32 +33,19 @@ export default function ValueProposition() {
   return (
     <section className="pt-16 pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="reveal rounded-2xl overflow-hidden relative">
-          {/* Background image com blur */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: 'url(/imgs/hero-background-v3.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'blur(6px)',
-              transform: 'scale(1.15)',
-            }}
-          />
-          {/* White overlay */}
-          <div className="absolute inset-0 bg-white/45" />
+        <div className="reveal rounded-2xl overflow-hidden relative" style={{ background: 'linear-gradient(to right, #1AAFE8 0%, #0284C7 100%)' }}>
 
           {/* Content */}
-          <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center px-12 py-12">
-            <div className="lg:col-span-5 reveal">
-              <h2 className="text-[32px] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)]">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end px-6 md:px-12 pt-6 md:pt-8">
+            <div className="lg:col-span-5 reveal pb-12">
+              <h2 className="text-[26px] md:text-[32px] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)] text-white">
                 Simples para registrar.<br />Poderoso para tratar.
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8 font-inter tracking-[-0.01em]">
+              <p className="text-white/70 text-lg leading-relaxed mb-8 font-inter tracking-[-0.01em]">
                 Sua equipe com acesso a uma ferramenta poderosa e intuitiva para registrar, apurar, corrigir e fechar o ponto com agilidade e segurança.
               </p>
               <Button
-                className="font-inter text-[16px] h-auto py-[12px] px-[16px] font-medium"
+                className="font-inter text-[16px] h-auto py-[12px] px-[16px] font-medium bg-white text-foreground hover:bg-white/90"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 asChild
@@ -67,8 +54,9 @@ export default function ValueProposition() {
               </Button>
             </div>
 
-            <div className="lg:col-span-7 grid md:grid-cols-2 gap-4">
-              <div className="reveal rounded-2xl bg-white p-6" style={{ transitionDelay: '100ms' }}>
+            <div className="lg:col-span-7 grid md:grid-cols-2 gap-4 self-end">
+              <div className="reveal rounded-t-2xl bg-white p-8 relative overflow-hidden" style={{ transitionDelay: '100ms' }}>
+                <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.06) 0%, transparent 100%)' }} />
                 <h3 className="text-xl font-medium tracking-[-0.02em] mb-5 font-[family-name:var(--font-geist-sans)]">Para o gestor</h3>
                 <ul className="space-y-4">
                   {managerItems.map((item) => (
@@ -80,7 +68,7 @@ export default function ValueProposition() {
                 </ul>
               </div>
 
-              <div className="reveal rounded-2xl bg-foreground p-6" style={{ transitionDelay: '200ms' }}>
+              <div className="reveal rounded-t-2xl bg-foreground p-6" style={{ transitionDelay: '200ms' }}>
                 <h3 className="text-xl font-medium tracking-[-0.02em] mb-5 font-[family-name:var(--font-geist-sans)] text-white">Para o colaborador</h3>
                 <ul className="space-y-4">
                   {employeeItems.map((item) => (

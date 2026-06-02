@@ -12,14 +12,24 @@ import {
   TrendingUp,
   TrendingDown,
   Bell,
-  LayoutGrid,
+  Users,
+  SlidersHorizontal,
+  Download,
+  Building2,
 } from 'lucide-react'
 
-const webFeatures = Array.from({ length: 10 }, (_, i) => ({
-  icon: LayoutGrid,
-  label: 'Lorem ipsum',
-  key: i,
-}))
+const webFeatures = [
+  { icon: BarChart2, label: 'Dashboard' },
+  { icon: SlidersHorizontal, label: 'Apuração de ponto' },
+  { icon: Users, label: 'Gestão de equipe' },
+  { icon: FileCheck, label: 'Relatórios fiscais' },
+  { icon: TrendingUp, label: 'Banco de horas' },
+  { icon: MessageSquare, label: 'Solicitações' },
+  { icon: AlertCircle, label: 'Ocorrências' },
+  { icon: Download, label: 'Exportações' },
+  { icon: Bell, label: 'Alertas' },
+  { icon: Building2, label: 'Multi-unidades' },
+]
 
 const features = [
   { icon: Clock, label: 'Registro de ponto' },
@@ -72,7 +82,7 @@ export default function Problem() {
 
         {/* Section title */}
         <div className="max-w-2xl mx-auto text-center reveal mb-8">
-          <h2 className="text-[42px] leading-tight font-normal tracking-[-0.03em] mb-0 font-[family-name:var(--font-geist-sans)]">
+          <h2 className="text-[28px] md:text-[42px] leading-tight font-normal tracking-[-0.03em] mb-0 font-[family-name:var(--font-geist-sans)]">
             Integração perfeita entre dispositivos
           </h2>
         </div>
@@ -102,7 +112,7 @@ export default function Problem() {
         </div>
 
         {/* Image block */}
-        <div ref={blockRef} className="relative reveal rounded-xl overflow-hidden h-[700px]">
+        <div ref={blockRef} className="relative reveal rounded-xl overflow-hidden h-[420px] md:h-[700px]">
 
           {/* Wrapper parallax */}
           <div
@@ -125,9 +135,9 @@ export default function Problem() {
             <div
               className="absolute inset-0"
               style={{
-                backgroundImage: 'url(/imgs/app-mobile.png)',
-                backgroundSize: '120%',
-                backgroundPosition: '-20% 52%',
+                backgroundImage: 'url(/imgs/img-mac.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
                 transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
                 transform: active === 1 ? 'translateX(0%)' : 'translateX(100%)',
               }}
@@ -135,18 +145,18 @@ export default function Problem() {
           </div>
 
           {/* Degradê esquerda para disfarçar corte */}
-          <div className="absolute inset-y-0 left-0 w-[280px] pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)' }} />
+          <div className="absolute inset-y-0 left-0 w-[160px] md:w-[280px] pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)' }} />
 
           {/* Título com track vertical — "Aplicativo" parece estático */}
-          <div className="absolute top-8 left-8 w-[360px]" style={{ height: '40px', overflow: 'hidden' }}>
+          <div className="absolute top-5 left-5 md:top-8 md:left-8 w-[240px] md:w-[360px]" style={{ height: '40px', overflow: 'hidden' }}>
             <div style={{
               transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
               transform: `translateY(${active === 0 ? '0px' : '-40px'})`,
             }}>
-              <h3 className="text-white text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap">
+              <h3 className="text-white text-[20px] md:text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap">
                 Aplicativo mobile
               </h3>
-              <h3 className="text-white text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap">
+              <h3 className="text-white text-[20px] md:text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap">
                 Aplicativo web
               </h3>
             </div>
@@ -156,18 +166,18 @@ export default function Problem() {
           {tabs.map((tab, i) => (
             <div
               key={tab.label + '-panel'}
-              className="absolute left-8 bottom-8 w-[360px] flex flex-col"
+              className="absolute left-5 md:left-8 bottom-4 md:bottom-8 w-[180px] md:w-[360px] flex flex-col"
               style={{
-                top: '88px',
+                top: '60px',
                 opacity: i === active ? 1 : 0,
                 transition: 'opacity 0.4s ease',
                 pointerEvents: i === active ? 'auto' : 'none',
               }}
             >
-              <p className="text-white/70 text-xl leading-relaxed whitespace-pre-line font-[family-name:var(--font-geist-sans)]">
+              <p className="text-white/70 text-sm md:text-xl leading-relaxed whitespace-pre-line font-[family-name:var(--font-geist-sans)] hidden md:block">
                 {tab.description}
               </p>
-              <div className="grid grid-cols-2 gap-3 flex-1 mt-6">
+              <div className="grid grid-cols-2 gap-2 md:gap-3 flex-1 mt-3 md:mt-6">
                 {(i === 0 ? features : webFeatures).map(({ icon: Icon, label }) => (
                   <div
                     key={label}

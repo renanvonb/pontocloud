@@ -44,9 +44,9 @@ export default function ProblemV2() {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 reveal">
-          <h2 className="text-[42px] leading-tight font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)]">
-            Registro e controle de ponto eficiente<br />para uma rotina descomplicada
+        <div className="max-w-2xl mx-auto text-center mb-10 md:mb-16 reveal">
+          <h2 className="text-[28px] md:text-[42px] leading-tight font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)]">
+            Registro e controle de ponto eficiente para uma rotina descomplicada
           </h2>
         </div>
 
@@ -55,7 +55,7 @@ export default function ProblemV2() {
           {items.map((item, index) => {
             const Icon = item.icon
             return (
-              <div key={item.number} className="reveal bg-[#f5f6f8] rounded-2xl p-7 flex flex-col" style={{ transitionDelay: `${index * 100}ms` }}>
+              <div key={item.number} className="reveal bg-[#f5f6f8] rounded-2xl p-7 flex flex-col hover:-translate-y-1 transition-transform duration-300" style={{ transitionDelay: `${index * 100}ms` }}>
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white mb-10 shrink-0" style={{ boxShadow: '2px 4px 8px rgba(0,0,0,0.06)' }}>
                   <Icon size={22} className="text-primary" aria-hidden="true" />
                 </div>

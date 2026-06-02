@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
+import { Menu, LogIn } from 'lucide-react'
 import Logo from './Logo'
 import { Button } from '@/components/ui/button'
 import {
@@ -18,8 +18,7 @@ const links = [
   { label: 'Benefícios', href: '#beneficios' },
   { label: 'Recursos', href: '#recursos' },
   { label: 'Dúvidas', href: '#duvidas' },
-  { label: 'Planos', href: '#planos' },
-  { label: 'Revenda', href: '#revenda' },
+  { label: 'Seja uma revenda', href: '#revenda' },
 ]
 
 const NAVBAR_HEIGHT = 80
@@ -59,6 +58,7 @@ function scrollToTop() {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState(false)
   const [hoveredBtn, setHoveredBtn] = useState<string | null>(null)
 
@@ -76,6 +76,7 @@ export default function Navbar() {
     setMounted(true)
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+      setScrollY(window.scrollY)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -118,14 +119,12 @@ export default function Navbar() {
             variant="ghost"
             onMouseEnter={() => setHoveredBtn('revenda')}
             onMouseLeave={() => setHoveredBtn(null)}
-            className={`hidden md:inline-flex text-[16px] h-auto py-[12px] px-[16px] font-medium font-inter text-foreground hover:text-foreground border transition-colors duration-500 ${
-              scrolled
-                ? 'border-black/10 bg-transparent hover:bg-black/5'
-                : 'border-black/10 bg-transparent hover:bg-white/20'
-            }`}
+            className="hidden md:inline-flex text-[16px] h-auto py-[12px] px-[16px] font-medium font-inter text-foreground hover:text-foreground border-0 backdrop-blur-md"
+            style={{ backgroundColor: `rgba(255,255,255,${Math.max(0, 0.20 - scrollY / 400)})`, transition: 'background-color 0.4s ease' }}
             asChild
           >
-            <a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer">
+            <a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+              <LogIn className="h-4 w-4 shrink-0" />
               {slideText('Área da revenda', 'revenda')}
             </a>
           </Button>
