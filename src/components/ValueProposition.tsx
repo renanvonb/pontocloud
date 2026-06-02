@@ -31,31 +31,31 @@ export default function ValueProposition() {
   }
 
   return (
-    <section className="pt-16 pb-24 bg-white">
+    <section className="pt-10 pb-12 md:pt-16 md:pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="reveal rounded-2xl overflow-hidden relative" style={{ background: 'linear-gradient(to right, #1AAFE8 0%, #0284C7 100%)' }}>
+        <div className="reveal rounded-2xl overflow-hidden relative md:min-h-[400px] flex flex-col" style={{ background: 'linear-gradient(to right, #1AAFE8 0%, #0284C7 100%)' }}>
 
           {/* Content */}
-          <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end px-6 md:px-12 pt-6 md:pt-8">
-            <div className="lg:col-span-5 reveal pb-12">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end px-6 md:px-12 pt-6 md:pt-12 flex-1">
+            <div className="lg:col-span-4 reveal pb-0 lg:pb-12 flex flex-col self-stretch">
               <h2 className="text-[26px] md:text-[32px] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)] text-white">
                 Simples para registrar.<br />Poderoso para tratar.
               </h2>
-              <p className="text-white/70 text-lg leading-relaxed mb-8 font-inter tracking-[-0.01em]">
+              <p className="text-white/70 text-sm md:text-lg leading-relaxed mb-0 md:mb-8 font-inter tracking-[-0.01em]">
                 Sua equipe com acesso a uma ferramenta poderosa e intuitiva para registrar, apurar, corrigir e fechar o ponto com agilidade e segurança.
               </p>
               <Button
-                className="font-inter text-[16px] h-auto py-[12px] px-[16px] font-medium bg-white text-foreground hover:bg-white/90"
+                className="font-inter text-[16px] h-auto py-[12px] px-[16px] font-medium bg-white text-foreground hover:bg-white/90 mt-auto w-full hidden lg:flex"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 asChild
               >
-                <a href="#revenda">{slideText('Falar com nossa equipe')}</a>
+                <a href="#revenda">{slideText('Fale com a nossa equipe')}</a>
               </Button>
             </div>
 
-            <div className="lg:col-span-7 grid md:grid-cols-2 gap-4 self-end">
-              <div className="reveal rounded-t-2xl bg-white p-8 relative overflow-hidden" style={{ transitionDelay: '100ms' }}>
+            <div className="lg:col-span-8 grid md:grid-cols-2 gap-4 self-stretch">
+              <div className="reveal rounded-2xl md:rounded-b-none bg-white p-6 relative overflow-hidden h-full" style={{ transitionDelay: '100ms' }}>
                 <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.06) 0%, transparent 100%)' }} />
                 <h3 className="text-xl font-medium tracking-[-0.02em] mb-5 font-[family-name:var(--font-geist-sans)]">Para o gestor</h3>
                 <ul className="space-y-4">
@@ -68,7 +68,7 @@ export default function ValueProposition() {
                 </ul>
               </div>
 
-              <div className="reveal rounded-t-2xl bg-foreground p-6" style={{ transitionDelay: '200ms' }}>
+              <div className="reveal rounded-2xl md:rounded-b-none bg-foreground p-6 h-full" style={{ transitionDelay: '200ms' }}>
                 <h3 className="text-xl font-medium tracking-[-0.02em] mb-5 font-[family-name:var(--font-geist-sans)] text-white">Para o colaborador</h3>
                 <ul className="space-y-4">
                   {employeeItems.map((item) => (
@@ -80,6 +80,18 @@ export default function ValueProposition() {
                 </ul>
               </div>
             </div>
+          </div>
+
+          {/* Mobile-only button below cards */}
+          <div className="lg:hidden px-6 pb-6 pt-6">
+            <Button
+              className="font-inter text-[16px] h-auto py-[12px] px-[16px] font-medium bg-white text-foreground hover:bg-white/90 w-full"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              asChild
+            >
+              <a href="#revenda">{slideText('Fale com a nossa equipe')}</a>
+            </Button>
           </div>
         </div>
       </div>

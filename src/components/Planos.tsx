@@ -16,16 +16,17 @@ export default function Planos() {
   }
 
   return (
-    <section id="planos" className="pb-24 bg-white overflow-hidden">
+    <section id="planos" className="pb-12 md:pb-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="reveal rounded-2xl overflow-hidden relative flex items-end" style={{ background: 'linear-gradient(to right, #1AAFE8 0%, #0284C7 100%)', minHeight: '420px' }}>
+        <div className="reveal rounded-2xl overflow-hidden relative flex items-end min-h-[320px] md:min-h-[500px]" style={{ background: 'linear-gradient(to right, #1AAFE8 0%, #0284C7 100%)' }}>
           {/* Left content */}
           <div className="relative z-10 px-6 md:px-12 pt-10 md:pt-16 pb-8 md:pb-12 flex flex-col justify-between self-stretch w-full md:w-[calc(32%+32px)]">
             <div className="reveal flex flex-col gap-4">
-              <h2 className="text-[36px] md:text-[56px] leading-[1.05] font-normal tracking-[-0.03em] text-white font-[family-name:var(--font-geist-sans)]">
-                Valores<br />que cabem<br />no seu bolso
+              <h2 className="text-[32px] md:text-[56px] leading-[1.05] font-normal tracking-[-0.03em] text-white font-[family-name:var(--font-geist-sans)]">
+                <span className="md:hidden">Valores que<br />cabem no seu bolso</span>
+                <span className="hidden md:inline">Valores<br />que cabem<br />no seu bolso</span>
               </h2>
-              <p className="text-white/70 font-inter text-[17px] leading-relaxed">
+              <p className="text-white/70 font-inter text-sm md:text-[17px] leading-relaxed">
                 Pague só pelo que usa.<br />Sem surpresas na fatura, sem licenças desperdiçadas.
               </p>
             </div>
@@ -36,7 +37,7 @@ export default function Planos() {
                 onMouseLeave={() => setHovered(false)}
                 asChild
               >
-                <a href="#revenda">{slideText('Falar com nossa equipe')}</a>
+                <a href="#revenda">{slideText('Fale com a nossa equipe')}</a>
               </Button>
             </div>
           </div>

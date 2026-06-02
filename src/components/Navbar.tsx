@@ -2,16 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, LogIn } from 'lucide-react'
+import { Menu, LogIn, X } from 'lucide-react'
 import Logo from './Logo'
 import { Button } from '@/components/ui/button'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 
 const links = [
@@ -61,6 +54,7 @@ export default function Navbar() {
   const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState(false)
   const [hoveredBtn, setHoveredBtn] = useState<string | null>(null)
+  const [sheetOpen, setSheetOpen] = useState(false)
 
   function slideText(text: string, key: string) {
     const hovered = hoveredBtn === key
@@ -78,15 +72,18 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20)
       setScrollY(window.scrollY)
     }
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
+    <>
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out pt-1 pb-1',
-        scrolled ? 'bg-white/60 shadow-sm backdrop-blur-md' : 'bg-transparent',
+        'bg-white/40 shadow-sm backdrop-blur-md md:shadow-none md:backdrop-blur-none md:bg-transparent',
+        scrolled ? 'md:bg-white/60 md:shadow-sm md:backdrop-blur-md' : '',
         mounted ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       )}
     >
@@ -139,39 +136,49 @@ export default function Navbar() {
             </a>
           </Button>
 
-          <Sheet>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" aria-label="Abrir menu">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:max-w-sm">
-              <SheetHeader>
-                <SheetTitle className="text-left">
-                  <Logo />
-                </SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col gap-4 mt-8">
-                {links.map((l) => (
-                  <button
-                    key={l.href}
-                    onClick={() => scrollToSection(l.href)}
-                    className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
-                  >
-                    {l.label}
-                  </button>
-                ))}
-                <Button variant="ghost" className="mt-4 border-0 bg-white/20 backdrop-blur-md hover:bg-white/30 text-foreground hover:text-foreground" asChild>
-                  <a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer">Área da revenda</a>
-                </Button>
-                <Button asChild>
-                  <a href="https://app.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer">Acessar</a>
-                </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <button className="md:hidden relative w-9 h-9 flex items-center justify-center" aria-label="Abrir menu" onClick={() => setSheetOpen(!sheetOpen)}>
+            <Menu className={cn('h-5 w-5 absolute transition-all duration-200', sheetOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100')} />
+            <X className={cn('h-5 w-5 absolute transition-all duration-200', sheetOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-75')} />
+          </button>
         </div>
       </nav>
     </header>
+
+    {/* Backdrop */}
+    {sheetOpen && (
+      <div className="fixed inset-0 z-40 md:hidden" onClick={() => setSheetOpen(false)} />
+    )}
+
+    {/* Floating glass menu */}
+    <div
+      className={cn(
+        'fixed top-[100px] left-6 right-6 z-50 md:hidden rounded-2xl bg-white/40 shadow-sm backdrop-blur-md overflow-hidden transition-all duration-300',
+        sheetOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-3 pointer-events-none'
+      )}
+    >
+      <div className="flex flex-col p-4 gap-1">
+        {links.map((l) => (
+          <button
+            key={l.href}
+            onClick={() => { scrollToSection(l.href); setSheetOpen(false) }}
+            className="text-base font-medium text-foreground/70 hover:text-foreground transition-colors text-center py-3 rounded-xl hover:bg-black/5"
+          >
+            {l.label}
+          </button>
+        ))}
+        <div className="flex flex-col gap-2 mt-2 pt-3 border-t border-black/5">
+          <Button variant="ghost" size="lg" className="w-full font-normal text-foreground hover:text-foreground" asChild>
+            <a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" onClick={() => setSheetOpen(false)}>
+              <LogIn className="h-4 w-4 mr-2 shrink-0" />
+              Área da revenda
+            </a>
+          </Button>
+          <Button size="lg" className="w-full font-normal" asChild>
+            <a href="https://app.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" onClick={() => setSheetOpen(false)}>Acessar</a>
+          </Button>
+        </div>
+      </div>
+    </div>
+    </>
   )
 }

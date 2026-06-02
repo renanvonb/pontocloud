@@ -46,14 +46,14 @@ const features = [
 
 const tabs = [
   {
-    label: 'Aplicativo mobile',
-    title: 'Aplicativo mobile',
-    description: 'O ponto de contato diário\ndo colaborador com a jornada',
+    label: 'Aplicativo web',
+    title: 'Aplicativo web',
+    description: 'Controle centralizado para sua equipe acompanhar, tratar e fechar ponto.',
   },
   {
-    label: 'Aplicativo Web',
-    title: 'Aplicativo web',
-    description: 'Controle centralizado para sua equipe acompanhar, tratar e fechar ponto',
+    label: 'Aplicativo mobile',
+    title: 'Aplicativo mobile',
+    description: 'O ponto de contato diário\ndo colaborador com a jornada.',
   },
 ]
 
@@ -77,7 +77,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="recursos" className="relative z-20 py-24 bg-[#f5f6f8]">
+    <section id="recursos" className="relative z-20 py-12 md:py-24 bg-[#f5f6f8]">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section title */}
@@ -88,15 +88,15 @@ export default function Problem() {
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12 reveal">
-          <div className="flex items-center gap-1 bg-foreground/5 border border-border rounded-lg p-1">
+        <div className="flex justify-center mb-4 md:mb-12 reveal">
+          <div className="flex items-center gap-1 bg-foreground/5 border border-border rounded-lg p-1 w-full md:w-auto">
             {tabs.map((tab, i) => (
               <button
                 key={tab.label}
                 onClick={() => setActive(i)}
                 onMouseEnter={() => setHoveredTab(i)}
                 onMouseLeave={() => setHoveredTab(null)}
-                className={`text-[16px] font-medium font-inter py-[12px] px-[16px] rounded-md transition-all duration-300 ${
+                className={`flex-1 md:flex-none text-[14px] md:text-[16px] font-medium font-inter py-[8px] px-[12px] md:py-[12px] md:px-[16px] rounded-md transition-all duration-300 ${
                   i === active
                     ? 'bg-white text-foreground shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
@@ -112,7 +112,7 @@ export default function Problem() {
         </div>
 
         {/* Image block */}
-        <div ref={blockRef} className="relative reveal rounded-xl overflow-hidden h-[420px] md:h-[700px]">
+        <div ref={blockRef} className="relative reveal rounded-xl overflow-hidden h-[460px] md:h-[700px]">
 
           {/* Wrapper parallax */}
           <div
@@ -120,22 +120,22 @@ export default function Problem() {
             className="absolute inset-0"
             style={{ transformOrigin: 'center center' }}
           >
-            {/* Slide mobile */}
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: 'url(/imgs/app-mobile.png)',
-                backgroundSize: '120%',
-                backgroundPosition: '-20% 52%',
-                transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
-                transform: active === 0 ? 'translateX(0%)' : 'translateX(-100%)',
-              }}
-            />
             {/* Slide web */}
             <div
               className="absolute inset-0"
               style={{
                 backgroundImage: 'url(/imgs/img-mac.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: '60% center',
+                transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
+                transform: active === 0 ? 'translateX(0%)' : 'translateX(-100%)',
+              }}
+            />
+            {/* Slide mobile */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'url(/imgs/app-mobile.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
@@ -145,7 +145,9 @@ export default function Problem() {
           </div>
 
           {/* Degradê esquerda para disfarçar corte */}
-          <div className="absolute inset-y-0 left-0 w-[160px] md:w-[280px] pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)' }} />
+          <div className="absolute inset-y-0 left-0 hidden md:block md:w-[300px] pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)' }} />
+          {/* Degradê base mobile */}
+          <div className="absolute bottom-0 left-0 right-0 h-52 md:hidden pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 100%)' }} />
 
           {/* Título com track vertical — "Aplicativo" parece estático */}
           <div className="absolute top-5 left-5 md:top-8 md:left-8 w-[240px] md:w-[360px]" style={{ height: '40px', overflow: 'hidden' }}>
@@ -153,11 +155,11 @@ export default function Problem() {
               transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
               transform: `translateY(${active === 0 ? '0px' : '-40px'})`,
             }}>
-              <h3 className="text-white text-[20px] md:text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap">
-                Aplicativo mobile
-              </h3>
-              <h3 className="text-white text-[20px] md:text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap">
+              <h3 className="text-white text-[20px] md:text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
                 Aplicativo web
+              </h3>
+              <h3 className="text-white text-[20px] md:text-[32px] leading-[40px] font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)] whitespace-nowrap" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
+                Aplicativo mobile
               </h3>
             </div>
           </div>
@@ -166,22 +168,24 @@ export default function Problem() {
           {tabs.map((tab, i) => (
             <div
               key={tab.label + '-panel'}
-              className="absolute left-5 md:left-8 bottom-4 md:bottom-8 w-[180px] md:w-[360px] flex flex-col"
+              className="absolute bottom-6 left-6 right-6 md:top-[88px] md:left-8 md:right-auto md:bottom-8 md:w-[360px] flex flex-col"
               style={{
-                top: '60px',
                 opacity: i === active ? 1 : 0,
                 transition: 'opacity 0.4s ease',
                 pointerEvents: i === active ? 'auto' : 'none',
               }}
             >
-              <p className="text-white/70 text-sm md:text-xl leading-relaxed whitespace-pre-line font-[family-name:var(--font-geist-sans)] hidden md:block">
+              <p
+                className="text-white text-sm md:text-xl leading-relaxed whitespace-pre-line font-[family-name:var(--font-geist-sans)] md:text-white/70 pr-2 md:pr-0"
+                style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}
+              >
                 {tab.description}
               </p>
-              <div className="grid grid-cols-2 gap-2 md:gap-3 flex-1 mt-3 md:mt-6">
-                {(i === 0 ? features : webFeatures).map(({ icon: Icon, label }) => (
+              <div className="hidden md:grid md:grid-cols-2 md:gap-2 md:items-end md:mt-auto">
+                {(i === 0 ? webFeatures : features).map(({ icon: Icon, label }) => (
                   <div
                     key={label}
-                    className="relative flex flex-col justify-between bg-white/15 backdrop-blur-md rounded-lg px-4 py-4 cursor-default overflow-hidden group"
+                    className="relative flex flex-col gap-5 bg-white/15 backdrop-blur-md rounded-lg px-4 py-4 cursor-default overflow-hidden group"
                   >
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-lg" />
                     <Icon size={20} className="text-white/70 relative z-10" />

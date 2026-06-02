@@ -6,9 +6,9 @@ export default function Clients() {
   const doubled = [...logos, ...logos]
 
   return (
-    <section className="relative z-20 py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 mb-12 text-center reveal">
-        <h2 className="text-base md:text-lg font-medium tracking-[-0.01em] text-muted-foreground font-[family-name:var(--font-geist-sans)]">
+    <section className="relative z-20 py-10 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12 text-center reveal">
+        <h2 className="text-base md:text-lg font-normal tracking-[-0.01em] text-muted-foreground font-[family-name:var(--font-geist-sans)]">
           Empresas que confiam
         </h2>
       </div>
@@ -21,7 +21,7 @@ export default function Clients() {
 
         <div
           className="flex items-center gap-12 w-max px-6"
-          style={{ animation: 'marquee 50s linear infinite' }}
+          style={{ animation: 'marquee 80s linear infinite' }}
         >
           {doubled.map((_, i) => (
             <Image
@@ -30,7 +30,7 @@ export default function Clients() {
               alt="Cliente PontoCloud"
               width={140}
               height={40}
-              className="h-8 w-auto opacity-50 grayscale select-none"
+              className="h-5 md:h-8 w-auto opacity-50 grayscale select-none"
               draggable={false}
             />
           ))}

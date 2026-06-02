@@ -26,7 +26,7 @@ function LegalDialog({ title, children }: { title: string; children: React.React
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors cursor-pointer">
+        <button className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors cursor-pointer">
           {title}
         </button>
       </Dialog.Trigger>
@@ -45,7 +45,7 @@ function LegalDialog({ title, children }: { title: string; children: React.React
               <span className="sr-only">Fechar</span>
             </Dialog.Close>
           </div>
-          <div className="overflow-y-auto max-h-[60vh] pr-2 text-[16px] font-normal text-muted-foreground font-inter leading-relaxed [&_strong]:font-normal [&_strong]:text-foreground">
+          <div className="overflow-y-auto max-h-[60vh] pr-2 text-sm md:text-[16px] font-normal text-muted-foreground font-inter leading-relaxed [&_strong]:font-normal [&_strong]:text-foreground">
             {children}
           </div>
         </Dialog.Content>
@@ -56,7 +56,7 @@ function LegalDialog({ title, children }: { title: string; children: React.React
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t border-border pt-16 pb-8">
+    <footer className="bg-card border-t border-border pt-10 pb-10 md:pt-16 md:pb-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 pb-12">
           <div>
@@ -75,19 +75,19 @@ export default function Footer() {
               </span>
             </div>
           </div>
-          <div className="flex flex-wrap gap-10 md:gap-24">
+          <div className="flex justify-between md:justify-start md:gap-24">
             <div>
-              <h5 className="text-sm font-medium font-inter mb-4">Páginas</h5>
+              <h5 className="text-xs md:text-sm font-medium font-inter mb-4">Páginas</h5>
               <ul className="flex flex-col gap-3">
-                <li><a href="#beneficios" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Benefícios</a></li>
-                <li><a href="#recursos" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Recursos</a></li>
-                <li><a href="#duvidas" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Dúvidas</a></li>
+                <li><a href="#beneficios" className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Benefícios</a></li>
+                <li><a href="#recursos" className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Recursos</a></li>
+                <li><a href="#duvidas" className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Dúvidas</a></li>
               </ul>
             </div>
             <div>
-              <h5 className="text-sm font-medium font-inter mb-4">Informação</h5>
+              <h5 className="text-xs md:text-sm font-medium font-inter mb-4">Informação</h5>
               <ul className="flex flex-col gap-3">
-                <li><a href="#revenda" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Seja uma revenda</a></li>
+                <li><a href="#revenda" className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Seja uma revenda</a></li>
                 <li>
                   <LegalDialog title="Termos de uso">
                     <div className="space-y-5">
@@ -108,7 +108,7 @@ export default function Footer() {
                   </LegalDialog>
                 </li>
                 <li>
-                  <LegalDialog title="Políticas de privacidade">
+                  <LegalDialog title="Polít. de privacidade">
                     <div className="space-y-5">
                       {[
                         ['1. Responsável pelo Tratamento', 'A PontoCloud® é a controladora dos dados pessoais coletados por meio de sua plataforma, comprometendo-se com o tratamento responsável conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).'],
@@ -129,19 +129,19 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h5 className="text-sm font-medium font-inter mb-4">Acessos</h5>
+              <h5 className="text-xs md:text-sm font-medium font-inter mb-4">Acessos</h5>
               <ul className="flex flex-col gap-3">
-                <li><a href="https://app.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área do cliente</a></li>
-                <li><a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área de revenda</a></li>
-                <li><a href="https://admin.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área administrativa</a></li>
+                <li><a href="https://app.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área do cliente</a></li>
+                <li><a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área de revenda</a></li>
+                <li><a href="https://admin.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors">Área administrativa</a></li>
               </ul>
             </div>
           </div>
         </div>
 
-        <Separator className="mb-8" />
+        <Separator className="mb-8 -ml-6 w-[calc(100%+3rem)]" />
 
-        <p className="text-sm text-muted-foreground font-inter text-center">
+        <p className="text-xs md:text-sm text-muted-foreground font-inter text-center">
           © PontoCloud® 2026. Todos os direitos reservados.
         </p>
       </div>

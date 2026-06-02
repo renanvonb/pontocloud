@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-[100px] md:pt-[152px] bg-white"
+      className="relative pt-[128px] md:pt-[152px] bg-white"
       style={{ minHeight: 'auto' }}
     >
       <div
@@ -40,7 +40,7 @@ export default function Hero() {
         <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-medium text-black leading-[1.05] tracking-[-0.02em] mb-6">
           Conectando
           <br />
-          seu tempo ao futuro
+          seu tempo ao<br className="md:hidden" /> futuro
         </h1>
 
         <p className="text-foreground/60 text-[16px] md:text-[18px] font-inter tracking-[-0.01em] max-w-xl mx-auto leading-relaxed mb-12 md:mb-[88px]">
@@ -62,7 +62,7 @@ export default function Hero() {
               height={900}
               className="w-full h-auto rounded-[12px] ring-[4px] ring-white/20"
             />
-            <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none rounded-b-[12px]" />
+            <div className="absolute bottom-0 left-0 right-0 h-16 md:h-72 bg-gradient-to-t from-white/50 md:from-white via-white/10 md:via-white/60 to-transparent pointer-events-none rounded-b-[12px]" />
           </div>
         </div>
       </div>

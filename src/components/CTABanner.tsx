@@ -75,15 +75,16 @@ export default function CTABanner() {
   }
 
   return (
-    <section id="revenda" className="py-16 bg-black relative overflow-hidden">
+    <section id="revenda" className="py-10 md:py-16 bg-black relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 0% 100%, rgba(14,165,233,0.75) 0%, transparent 100%), radial-gradient(ellipse 55% 50% at 100% 0%, rgba(14,165,233,0.40) 0%, transparent 100%)' }} />
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
-        <div className="lg:col-span-7 text-left reveal text-white flex flex-col justify-center">
-          <h2 className="text-[32px] md:text-[48px] lg:text-[56px] leading-[1.05] font-normal tracking-[-0.03em] mb-6 font-[family-name:var(--font-geist-sans)]">
-            Torne-se<br />uma revenda<br /><span style={{ color: '#0EA5E9' }}>PontoCloud</span>
+        <div className="lg:col-span-7 text-left reveal text-white flex flex-col justify-center px-4 lg:px-0">
+          <h2 className="text-[32px] md:text-[48px] lg:text-[56px] leading-[1.05] font-normal tracking-[-0.03em] mb-6 font-[family-name:var(--font-geist-sans)] text-center lg:text-left">
+            <span className="lg:hidden">Torne-se uma revenda<br /><span style={{ color: '#0EA5E9' }}>PontoCloud®</span></span>
+            <span className="hidden lg:inline">Torne-se<br />uma revenda<br /><span style={{ color: '#0EA5E9' }}>PontoCloud®</span></span>
           </h2>
-          <p className="text-white/70 text-lg mb-8 leading-relaxed font-[family-name:var(--font-geist-sans)]">
-            Oferte soluções completas com recursos de ponta a seus clientes<br />e construa uma receita recorrente com o suporte da nossa equipe.
+          <p className="text-white/70 text-sm lg:text-lg mb-8 leading-relaxed font-[family-name:var(--font-geist-sans)] text-center lg:text-left">
+            Oferte soluções completas com recursos<br className="hidden lg:block" /> de ponta a seus clientes e construa uma receita<br className="hidden lg:block" /> recorrente com o suporte da nossa equipe.
           </p>
           <ul className="space-y-4 text-white/90">
             {[
@@ -91,7 +92,7 @@ export default function CTABanner() {
               'Suporte e treinamento dedicados',
               'Material de vendas e apoio comercial',
             ].map((item) => (
-              <li key={item} className="flex items-center gap-3 font-[family-name:var(--font-geist-sans)]">
+              <li key={item} className="flex items-center gap-3 text-sm lg:text-base font-[family-name:var(--font-geist-sans)]">
                 <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">✓</span>
                 {item}
               </li>
@@ -109,7 +110,7 @@ export default function CTABanner() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col flex-1 space-y-5">
+              <form onSubmit={handleSubmit} className="flex flex-col flex-1 space-y-4">
                 <h3 className="text-xl font-medium mb-2 font-[family-name:var(--font-geist-sans)]">Preencha o formulário</h3>
                 <div className="space-y-1.5">
                   <Label htmlFor="name">Nome completo</Label>
@@ -146,7 +147,7 @@ export default function CTABanner() {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-[1fr_4fr] gap-4">
                   <div className="space-y-1.5">
                     <Label htmlFor="estado">Estado</Label>
                     <Select
@@ -154,11 +155,11 @@ export default function CTABanner() {
                       onValueChange={(v) => { setEstado(v); setCidade('') }}
                     >
                       <SelectTrigger id="estado">
-                        <SelectValue placeholder="Selecione o estado" />
+                        <SelectValue placeholder="UF" />
                       </SelectTrigger>
                       <SelectContent>
                         {estados.map((e) => (
-                          <SelectItem key={e.uf} value={e.uf}>{e.nome}</SelectItem>
+                          <SelectItem key={e.uf} value={e.uf}>{e.uf}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
