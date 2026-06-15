@@ -26,7 +26,7 @@ export default function FAQ() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto px-4 md:px-0">
           <div className="reveal text-center mb-6 md:mb-12">
-            <h2 className="text-[28px] md:text-[42px] leading-tight font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)]">
+            <h2 className="text-[20px] xs:text-[26px] md:text-[clamp(28px,_3.3vw,_42px)] leading-tight font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)]">
               Dúvidas frequentes
             </h2>
           </div>

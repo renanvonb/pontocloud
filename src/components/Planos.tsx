@@ -22,7 +22,7 @@ export default function Planos() {
           {/* Left content */}
           <div className="relative z-10 px-6 md:px-12 pt-10 md:pt-16 pb-8 md:pb-12 flex flex-col justify-between self-stretch w-full md:w-[calc(32%+32px)]">
             <div className="reveal flex flex-col gap-4">
-              <h2 className="text-[32px] md:text-[56px] leading-[1.05] font-normal tracking-[-0.03em] text-white font-[family-name:var(--font-geist-sans)]">
+              <h2 className="text-[20px] xs:text-[26px] md:text-[clamp(34px,_4.4vw,_56px)] leading-[1.05] font-normal tracking-[-0.03em] text-white font-[family-name:var(--font-geist-sans)]">
                 <span className="md:hidden">Valores que<br />cabem no seu bolso</span>
                 <span className="hidden md:inline">Valores<br />que cabem<br />no seu bolso</span>
               </h2>

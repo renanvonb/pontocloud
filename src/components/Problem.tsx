@@ -82,7 +82,7 @@ export default function Problem() {
 
         {/* Section title */}
         <div className="max-w-2xl mx-auto text-center reveal mb-8">
-          <h2 className="text-[28px] md:text-[42px] leading-tight font-normal tracking-[-0.03em] mb-0 font-[family-name:var(--font-geist-sans)]">
+          <h2 className="text-[28px] md:text-[clamp(28px,_3.3vw,_42px)] leading-tight font-normal tracking-[-0.03em] mb-0 font-[family-name:var(--font-geist-sans)]">
             Integração perfeita entre dispositivos
           </h2>
         </div>
@@ -136,8 +136,8 @@ export default function Problem() {
               className="absolute inset-0"
               style={{
                 backgroundImage: 'url(/imgs/app-mobile.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundSize: '130% auto',
+                backgroundPosition: 'left center',
                 transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
                 transform: active === 1 ? 'translateX(0%)' : 'translateX(100%)',
               }}
@@ -181,7 +181,7 @@ export default function Problem() {
               >
                 {tab.description}
               </p>
-              <div className="hidden md:grid md:grid-cols-2 md:gap-2 md:items-end md:mt-auto">
+              <div className="hidden xl:grid xl:grid-cols-2 xl:gap-2 xl:items-end xl:mt-auto">
                 {(i === 0 ? webFeatures : features).map(({ icon: Icon, label }) => (
                   <div
                     key={label}

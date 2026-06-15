@@ -75,7 +75,7 @@ export default function Footer() {
               </span>
             </div>
           </div>
-          <div className="flex justify-between md:justify-start md:gap-24">
+          <div className="grid grid-cols-3 gap-x-4 md:flex md:justify-start md:gap-24">
             <div>
               <h5 className="text-xs md:text-sm font-medium font-inter mb-4">Páginas</h5>
               <ul className="flex flex-col gap-3">

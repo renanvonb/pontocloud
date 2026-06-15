@@ -79,7 +79,7 @@ export default function CTABanner() {
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 0% 100%, rgba(14,165,233,0.75) 0%, transparent 100%), radial-gradient(ellipse 55% 50% at 100% 0%, rgba(14,165,233,0.40) 0%, transparent 100%)' }} />
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
         <div className="lg:col-span-7 text-left reveal text-white flex flex-col justify-center px-4 lg:px-0">
-          <h2 className="text-[32px] md:text-[48px] lg:text-[56px] leading-[1.05] font-normal tracking-[-0.03em] mb-6 font-[family-name:var(--font-geist-sans)] text-center lg:text-left">
+          <h2 className="text-[20px] xs:text-[26px] md:text-[clamp(34px,_4.4vw,_56px)] leading-[1.05] font-normal tracking-[-0.03em] mb-6 font-[family-name:var(--font-geist-sans)] text-center lg:text-left">
             <span className="lg:hidden">Torne-se uma revenda<br /><span style={{ color: '#0EA5E9' }}>PontoCloud®</span></span>
             <span className="hidden lg:inline">Torne-se<br />uma revenda<br /><span style={{ color: '#0EA5E9' }}>PontoCloud®</span></span>
           </h2>
@@ -147,7 +147,7 @@ export default function CTABanner() {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-[1fr_4fr] gap-4">
+                <div className="grid grid-cols-[56px_1fr] gap-4">
                   <div className="space-y-1.5">
                     <Label htmlFor="estado">Estado</Label>
                     <Select

@@ -82,8 +82,8 @@ export default function Navbar() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out pt-1 pb-1',
-        'bg-white/40 shadow-sm backdrop-blur-md md:shadow-none md:backdrop-blur-none md:bg-transparent',
-        scrolled ? 'md:bg-white/60 md:shadow-sm md:backdrop-blur-md' : '',
+        'bg-white/40 shadow-sm backdrop-blur-md xl:shadow-none xl:backdrop-blur-none xl:bg-transparent',
+        scrolled ? 'xl:bg-white/60 xl:shadow-sm xl:backdrop-blur-md' : '',
         mounted ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       )}
     >
@@ -94,7 +94,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <ul className="hidden md:flex items-center gap-[4px] absolute left-1/2 -translate-x-1/2">
+        <ul className="hidden xl:flex items-center gap-[4px] absolute left-1/2 -translate-x-1/2">
           {links.map((l) => (
             <li key={l.href}>
               <button
@@ -116,7 +116,7 @@ export default function Navbar() {
             variant="ghost"
             onMouseEnter={() => setHoveredBtn('revenda')}
             onMouseLeave={() => setHoveredBtn(null)}
-            className="hidden md:inline-flex text-[16px] h-auto py-[12px] px-[16px] font-medium font-inter text-foreground hover:text-foreground border-0 backdrop-blur-md"
+            className="hidden xl:inline-flex text-[16px] h-auto py-[12px] px-[16px] font-medium font-inter text-foreground hover:text-foreground border-0 backdrop-blur-md"
             style={{ backgroundColor: `rgba(255,255,255,${Math.max(0, 0.20 - scrollY / 400)})`, transition: 'background-color 0.4s ease' }}
             asChild
           >
@@ -126,7 +126,7 @@ export default function Navbar() {
             </a>
           </Button>
           <Button
-            className="hidden md:inline-flex text-[16px] h-auto py-[12px] px-[16px] font-medium font-inter"
+            className="hidden xl:inline-flex text-[16px] h-auto py-[12px] px-[16px] font-medium font-inter"
             onMouseEnter={() => setHoveredBtn('acessar')}
             onMouseLeave={() => setHoveredBtn(null)}
             asChild
@@ -136,7 +136,7 @@ export default function Navbar() {
             </a>
           </Button>
 
-          <button className="md:hidden relative w-9 h-9 flex items-center justify-center" aria-label="Abrir menu" onClick={() => setSheetOpen(!sheetOpen)}>
+          <button className="xl:hidden relative w-9 h-9 flex items-center justify-center" aria-label="Abrir menu" onClick={() => setSheetOpen(!sheetOpen)}>
             <Menu className={cn('h-5 w-5 absolute transition-all duration-200', sheetOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100')} />
             <X className={cn('h-5 w-5 absolute transition-all duration-200', sheetOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-75')} />
           </button>
@@ -146,13 +146,13 @@ export default function Navbar() {
 
     {/* Backdrop */}
     {sheetOpen && (
-      <div className="fixed inset-0 z-40 md:hidden" onClick={() => setSheetOpen(false)} />
+      <div className="fixed inset-0 z-40 xl:hidden" onClick={() => setSheetOpen(false)} />
     )}
 
     {/* Floating glass menu */}
     <div
       className={cn(
-        'fixed top-[100px] left-6 right-6 z-50 md:hidden rounded-2xl bg-white/40 shadow-sm backdrop-blur-md overflow-hidden transition-all duration-300',
+        'fixed top-[100px] left-6 right-6 z-50 xl:hidden rounded-2xl bg-white/40 shadow-sm backdrop-blur-md overflow-hidden transition-all duration-300',
         sheetOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-3 pointer-events-none'
       )}
     >

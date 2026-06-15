@@ -8,7 +8,7 @@ export default function FeatureRows() {
 
           <div className="px-4 lg:px-0 lg:pr-16 pb-6 lg:pb-0">
             <span className={`${tagClass} mb-5`}>Para o colaborador</span>
-            <h3 className="text-[22px] md:text-[38px] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)]">
+            <h3 className="text-[16px] xs:text-[20px] md:text-[clamp(24px,_3vw,_38px)] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)]">
               Registro de ponto<br />simples e flexível com<br />acompanhamento completo
             </h3>
             <p className="text-muted-foreground text-sm md:text-[17px] leading-relaxed font-inter tracking-[-0.01em]">
@@ -18,7 +18,7 @@ export default function FeatureRows() {
 
           <div className="px-4 lg:px-0 lg:pl-16 pt-6 lg:pt-0">
             <span className={`${tagClass} mb-5`}>Apuração e gestão</span>
-            <h3 className="text-[22px] md:text-[38px] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)]">
+            <h3 className="text-[16px] xs:text-[20px] md:text-[clamp(24px,_3vw,_38px)] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)]">
               Apuração, tratamento<br />de marcações e fechamento<br />de folha com segurança
             </h3>
             <p className="text-muted-foreground text-sm md:text-[17px] leading-relaxed font-inter tracking-[-0.01em]">

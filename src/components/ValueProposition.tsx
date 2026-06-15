@@ -36,9 +36,9 @@ export default function ValueProposition() {
         <div className="reveal rounded-2xl overflow-hidden relative md:min-h-[400px] flex flex-col" style={{ background: 'linear-gradient(to right, #1AAFE8 0%, #0284C7 100%)' }}>
 
           {/* Content */}
-          <div className="relative z-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end px-6 md:px-12 pt-6 md:pt-12 flex-1">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-6 lg:gap-12 items-end px-4 xs:px-6 md:px-12 pt-6 md:pt-12 flex-1">
             <div className="lg:col-span-4 reveal pb-0 lg:pb-12 flex flex-col self-stretch">
-              <h2 className="text-[26px] md:text-[32px] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)] text-white">
+              <h2 className="text-[16px] xs:text-[20px] md:text-[clamp(22px,_2.5vw,_32px)] leading-tight font-normal tracking-[-0.03em] mb-5 font-[family-name:var(--font-geist-sans)] text-white">
                 Simples para registrar.<br />Poderoso para tratar.
               </h2>
               <p className="text-white/70 text-sm md:text-lg leading-relaxed mb-0 md:mb-8 font-inter tracking-[-0.01em]">

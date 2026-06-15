@@ -45,18 +45,25 @@ export default function ProblemV2() {
 
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center mb-10 md:mb-16 reveal">
-          <h2 className="text-[28px] md:text-[42px] leading-tight font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)]">
+          <h2 className="text-[18px] xs:text-[24px] md:text-[clamp(28px,_3.3vw,_42px)] leading-tight font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)]">
             <span className="md:hidden">Registro e controle de<br />ponto eficiente para uma<br />rotina descomplicada</span>
             <span className="hidden md:inline">Registro e controle de ponto eficiente para uma rotina descomplicada</span>
           </h2>
         </div>
 
-        {/* Row — 5 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        {/* Row — 5 cards: 3+2 at lg, 5-col at xl */}
+        <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-5 gap-4">
           {items.map((item, index) => {
             const Icon = item.icon
+            const lgColClasses = [
+              'lg:col-start-1 lg:col-span-2 xl:col-start-auto xl:col-span-1',
+              'lg:col-start-3 lg:col-span-2 xl:col-start-auto xl:col-span-1',
+              'lg:col-start-5 lg:col-span-2 xl:col-start-auto xl:col-span-1',
+              'lg:col-start-2 lg:col-span-2 xl:col-start-auto xl:col-span-1',
+              'lg:col-start-4 lg:col-span-2 xl:col-start-auto xl:col-span-1',
+            ]
             return (
-              <div key={item.number} className={`reveal bg-[#f5f6f8] rounded-2xl p-6 md:p-7 flex flex-col gap-6 md:gap-0 hover:-translate-y-1 transition-transform duration-300`} style={{ transitionDelay: `${index * 100}ms` }}>
+              <div key={item.number} className={`reveal bg-[#f5f6f8] rounded-2xl p-6 md:p-7 flex flex-col gap-6 md:gap-0 hover:-translate-y-1 transition-transform duration-300 ${lgColClasses[index]}`} style={{ transitionDelay: `${index * 100}ms` }}>
                 <div className="flex items-center gap-5 md:flex-col md:items-start md:gap-0">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shrink-0 md:mb-10" style={{ boxShadow: '1px 2px 4px rgba(0,0,0,0.04)' }}>
                     <Icon size={22} className="text-primary" aria-hidden="true" />
