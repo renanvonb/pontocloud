@@ -26,7 +26,7 @@ function LegalDialog({ title, children }: { title: string; children: React.React
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors cursor-pointer">
+        <button className="text-left text-xs md:text-sm text-muted-foreground font-inter hover:text-foreground transition-colors cursor-pointer">
           {title}
         </button>
       </Dialog.Trigger>
@@ -57,25 +57,31 @@ function LegalDialog({ title, children }: { title: string; children: React.React
 export default function Footer() {
   return (
     <footer className="bg-card border-t border-border pt-10 pb-10 md:pt-16 md:pb-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 pb-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 pb-12">
           <div>
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="cursor-pointer">
-              <Logo />
-            </button>
-            <p className="text-muted-foreground text-sm mt-4 mb-6 max-w-xs leading-relaxed font-inter">
+            <div className="flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left lg:flex-col lg:items-start lg:text-left gap-4 md:gap-4 lg:gap-0">
+              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="cursor-pointer">
+                <Logo />
+              </button>
+              <div className="order-3 flex gap-3 lg:order-last lg:mt-6">
+                <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer">
+                  <WhatsAppIcon />
+                </span>
+                <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer">
+                  <InstagramIcon />
+                </span>
+              </div>
+              <p className="order-2 block md:hidden lg:block text-muted-foreground text-sm mt-0 lg:mt-4 max-w-xs leading-relaxed font-inter">
+                Seu aliado completo para simplificar a rotina de registro e controle de ponto da sua empresa.
+              </p>
+            </div>
+            <p className="hidden md:block lg:hidden text-muted-foreground text-sm mt-4 mb-6 max-w-xs leading-relaxed font-inter">
               Seu aliado completo para simplificar a rotina de registro e controle de ponto da sua empresa.
             </p>
-            <div className="flex gap-3">
-              <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer">
-                <WhatsAppIcon />
-              </span>
-              <span className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors duration-200 cursor-pointer">
-                <InstagramIcon />
-              </span>
-            </div>
           </div>
-          <div className="grid grid-cols-3 gap-x-4 md:flex md:justify-start md:gap-24">
+          <hr className="md:hidden border-t border-border" />
+          <div className="flex flex-wrap gap-x-10 gap-y-8 md:gap-24 md:justify-start">
             <div>
               <h5 className="text-xs md:text-sm font-medium font-inter mb-4">Páginas</h5>
               <ul className="flex flex-col gap-3">

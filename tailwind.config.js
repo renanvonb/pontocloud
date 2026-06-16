@@ -17,6 +17,7 @@ module.exports = {
     extend: {
       screens: {
         xs: '360px',
+        ms: '426px',
         sm: '430px',
       },
       colors: {
@@ -70,6 +71,7 @@ module.exports = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        '2xl': '20px',
         '4xl': '2rem',
       },
       boxShadow: {

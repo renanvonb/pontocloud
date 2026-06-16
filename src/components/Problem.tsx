@@ -77,7 +77,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="recursos" className="relative z-20 py-12 md:py-24 bg-[#f5f6f8]">
+    <section id="recursos" className="relative z-20 py-12 md:pt-16 md:pb-16 lg:pt-16 lg:pb-16 xl:pt-[88px] xl:pb-[88px] bg-[#f5f6f8]">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section title */}
@@ -88,7 +88,7 @@ export default function Problem() {
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-4 md:mb-12 reveal">
+        <div className="flex justify-center mb-8 md:mb-12 reveal">
           <div className="flex items-center gap-1 bg-foreground/5 border border-border rounded-lg p-1 w-full md:w-auto">
             {tabs.map((tab, i) => (
               <button
@@ -96,7 +96,7 @@ export default function Problem() {
                 onClick={() => setActive(i)}
                 onMouseEnter={() => setHoveredTab(i)}
                 onMouseLeave={() => setHoveredTab(null)}
-                className={`flex-1 md:flex-none text-[14px] md:text-[16px] font-medium font-inter py-[8px] px-[12px] md:py-[12px] md:px-[16px] rounded-md transition-all duration-300 ${
+                className={`flex-1 md:flex-none text-[14px] md:text-[16px] font-medium font-inter py-[8px] px-[12px] md:py-[12px] md:px-[16px] rounded-[8px] transition-all duration-300 ${
                   i === active
                     ? 'bg-white text-foreground shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
@@ -112,7 +112,7 @@ export default function Problem() {
         </div>
 
         {/* Image block */}
-        <div ref={blockRef} className="relative reveal rounded-xl overflow-hidden h-[460px] md:h-[700px]">
+        <div ref={blockRef} className="relative reveal rounded-2xl overflow-hidden h-[430px] md:h-[700px]">
 
           {/* Wrapper parallax */}
           <div
@@ -122,22 +122,18 @@ export default function Problem() {
           >
             {/* Slide web */}
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 bg-[length:auto_95%] ms:bg-cover bg-[position:85%_center] lg:bg-[position:45%_center]"
               style={{
                 backgroundImage: 'url(/imgs/img-mac.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: '60% center',
                 transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
                 transform: active === 0 ? 'translateX(0%)' : 'translateX(-100%)',
               }}
             />
             {/* Slide mobile */}
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 bg-[length:200%_auto] ms:bg-[length:130%_auto] md:bg-[length:165%_auto] lg:bg-[length:130%_auto] xl:bg-[length:115%_auto] bg-[position:42%_center] ms:bg-[position:30%_center] lg:bg-[position:-20%_center] xl:bg-[position:-35%_center]"
               style={{
                 backgroundImage: 'url(/imgs/app-mobile.png)',
-                backgroundSize: '130% auto',
-                backgroundPosition: 'left center',
                 transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
                 transform: active === 1 ? 'translateX(0%)' : 'translateX(100%)',
               }}
@@ -145,7 +141,7 @@ export default function Problem() {
           </div>
 
           {/* Degradê esquerda para disfarçar corte */}
-          <div className="absolute inset-y-0 left-0 hidden md:block md:w-[300px] pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)' }} />
+          <div className="absolute inset-y-0 left-0 hidden md:block md:w-[300px] md:opacity-60 lg:opacity-100 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)' }} />
           {/* Degradê base mobile */}
           <div className="absolute bottom-0 left-0 right-0 h-52 md:hidden pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 100%)' }} />
 
@@ -168,7 +164,7 @@ export default function Problem() {
           {tabs.map((tab, i) => (
             <div
               key={tab.label + '-panel'}
-              className="absolute bottom-6 left-6 right-6 md:top-[88px] md:left-8 md:right-auto md:bottom-8 md:w-[360px] flex flex-col"
+              className="absolute bottom-6 left-6 right-6 md:top-auto md:bottom-8 md:left-8 md:right-auto md:w-[360px] lg:top-[92px] flex flex-col"
               style={{
                 opacity: i === active ? 1 : 0,
                 transition: 'opacity 0.4s ease',
@@ -176,20 +172,24 @@ export default function Problem() {
               }}
             >
               <p
-                className="text-white text-sm md:text-xl leading-relaxed whitespace-pre-line font-[family-name:var(--font-geist-sans)] md:text-white/70 pr-2 md:pr-0"
+                className="text-white text-sm md:text-xl lg:text-lg leading-relaxed whitespace-pre-line font-[family-name:var(--font-geist-sans)] lg:text-white/70 pr-2 md:pr-0"
                 style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}
               >
                 {tab.description}
               </p>
-              <div className="hidden xl:grid xl:grid-cols-2 xl:gap-2 xl:items-end xl:mt-auto">
+              <div className="hidden lg:grid lg:grid-cols-2 lg:gap-2 lg:items-end lg:mt-auto">
                 {(i === 0 ? webFeatures : features).map(({ icon: Icon, label }) => (
                   <div
                     key={label}
                     className="relative flex flex-col gap-5 bg-white/15 backdrop-blur-md rounded-lg px-4 py-4 cursor-default overflow-hidden group"
                   >
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-lg" />
-                    <Icon size={20} className="text-white/70 relative z-10" />
-                    <span className="text-white/90 text-[14px] leading-snug font-[family-name:var(--font-geist-sans)] relative z-10">
+                    <div
+                      className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                      style={{ padding: '2px', background: 'linear-gradient(to top right, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 60%)', WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}
+                    />
+                    <Icon size={20} className="text-white/70 relative z-10 transition-colors duration-300 group-hover:text-white" />
+                    <span className="text-white/90 text-[14px] leading-snug font-[family-name:var(--font-geist-sans)] relative z-10 transition-colors duration-300 group-hover:text-white">
                       {label}
                     </span>
                   </div>

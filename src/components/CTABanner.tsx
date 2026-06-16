@@ -75,18 +75,18 @@ export default function CTABanner() {
   }
 
   return (
-    <section id="revenda" className="py-10 md:py-16 bg-black relative overflow-hidden">
+    <section id="revenda" className="py-10 md:py-16 xl:py-[88px] bg-black relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 0% 100%, rgba(14,165,233,0.75) 0%, transparent 100%), radial-gradient(ellipse 55% 50% at 100% 0%, rgba(14,165,233,0.40) 0%, transparent 100%)' }} />
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
-        <div className="lg:col-span-7 text-left reveal text-white flex flex-col justify-center px-4 lg:px-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+        <div className="lg:col-span-6 text-left reveal text-white flex flex-col justify-center px-4 lg:px-0">
           <h2 className="text-[20px] xs:text-[26px] md:text-[clamp(34px,_4.4vw,_56px)] leading-[1.05] font-normal tracking-[-0.03em] mb-6 font-[family-name:var(--font-geist-sans)] text-center lg:text-left">
             <span className="lg:hidden">Torne-se uma revenda<br /><span style={{ color: '#0EA5E9' }}>PontoCloud®</span></span>
             <span className="hidden lg:inline">Torne-se<br />uma revenda<br /><span style={{ color: '#0EA5E9' }}>PontoCloud®</span></span>
           </h2>
           <p className="text-white/70 text-sm lg:text-lg mb-8 leading-relaxed font-[family-name:var(--font-geist-sans)] text-center lg:text-left">
-            Oferte soluções completas com recursos<br className="hidden lg:block" /> de ponta a seus clientes e construa uma receita<br className="hidden lg:block" /> recorrente com o suporte da nossa equipe.
+            Oferte soluções completas com recursos<br className="hidden lg:block" /> de ponta a seus clientes<br className="hidden md:block lg:hidden" /> e construa uma receita<br className="hidden lg:block" /> recorrente com o suporte da nossa equipe.
           </p>
-          <ul className="space-y-4 text-white/90">
+          <ul className="space-y-4 text-white/90 flex flex-col items-start w-fit mx-auto lg:w-auto lg:mx-0">
             {[
               'Comissões recorrentes por cliente ativo',
               'Suporte e treinamento dedicados',
@@ -100,7 +100,7 @@ export default function CTABanner() {
           </ul>
         </div>
 
-        <div className="lg:col-span-5 reveal flex flex-col">
+        <div className="lg:col-span-6 reveal flex flex-col w-full md:max-w-lg md:mx-auto lg:max-w-none lg:mx-0">
           <div className="flex-1 rounded-2xl bg-white p-6 md:p-8 flex flex-col">
             {submitted ? (
               <div className="flex flex-col items-center justify-center text-center flex-1 py-12">
@@ -147,7 +147,7 @@ export default function CTABanner() {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-[56px_1fr] gap-4">
+                <div className="grid grid-cols-[72px_1fr] gap-4">
                   <div className="space-y-1.5">
                     <Label htmlFor="estado">Estado</Label>
                     <Select
@@ -186,15 +186,16 @@ export default function CTABanner() {
                   <Label htmlFor="message">Mensagem</Label>
                   <textarea
                     id="message"
-                    placeholder="Digite uma mensagem."
+                    placeholder="Digite uma mensagem..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     rows={3}
-                    className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none font-inter"
+                    className="flex w-full rounded-[8px] border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none font-inter"
                   />
                 </div>
                 <Button
                   type="submit"
+                  disabled={!(name && email && phone && estado && cidade)}
                   className="w-full text-[16px] h-auto py-[12px] px-[16px] font-medium font-inter mt-auto"
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}

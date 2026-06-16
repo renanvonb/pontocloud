@@ -40,7 +40,7 @@ const items = [
 
 export default function ProblemV2() {
   return (
-    <section id="beneficios" className="relative z-20 bg-white pt-12 pb-0 md:pt-24">
+    <section id="beneficios" className="relative z-20 bg-white pt-12 pb-0 md:pt-16 lg:pt-16 xl:pt-[88px]">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
@@ -51,26 +51,29 @@ export default function ProblemV2() {
           </h2>
         </div>
 
-        {/* Row — 5 cards: 3+2 at lg, 5-col at xl */}
-        <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-5 gap-4">
+        {/* Row — 5 cards: 3+2 at md/lg, 5-col at xl */}
+        <div className="grid grid-cols-1 md:grid-cols-6 xl:grid-cols-5 gap-4">
           {items.map((item, index) => {
             const Icon = item.icon
             const lgColClasses = [
-              'lg:col-start-1 lg:col-span-2 xl:col-start-auto xl:col-span-1',
-              'lg:col-start-3 lg:col-span-2 xl:col-start-auto xl:col-span-1',
-              'lg:col-start-5 lg:col-span-2 xl:col-start-auto xl:col-span-1',
-              'lg:col-start-2 lg:col-span-2 xl:col-start-auto xl:col-span-1',
-              'lg:col-start-4 lg:col-span-2 xl:col-start-auto xl:col-span-1',
+              'md:col-span-2 xl:col-span-1',
+              'md:col-span-2 xl:col-span-1',
+              'md:col-span-2 xl:col-span-1',
+              'md:col-span-3 xl:col-span-1',
+              'md:col-span-3 xl:col-span-1',
             ]
             return (
-              <div key={item.number} className={`reveal bg-[#f5f6f8] rounded-2xl p-6 md:p-7 flex flex-col gap-6 md:gap-0 hover:-translate-y-1 transition-transform duration-300 ${lgColClasses[index]}`} style={{ transitionDelay: `${index * 100}ms` }}>
+              <div key={item.number} className={`group relative isolate overflow-hidden reveal bg-[#f5f6f8] rounded-2xl p-6 md:p-7 flex flex-col gap-6 md:gap-0 ${lgColClasses[index]}`} style={{ transitionDelay: `${index * 100}ms` }}>
+                <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.05) 0%, transparent 60%)' }} />
                 <div className="flex items-center gap-5 md:flex-col md:items-start md:gap-0">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shrink-0 md:mb-10" style={{ boxShadow: '1px 2px 4px rgba(0,0,0,0.04)' }}>
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shrink-0 md:mb-10 transition-transform duration-300 group-hover:scale-110" style={{ boxShadow: '1px 2px 4px rgba(0,0,0,0.04)' }}>
                     <Icon size={22} className="text-primary" aria-hidden="true" />
                   </div>
                   <h3 className="text-lg font-normal tracking-[-0.02em] font-[family-name:var(--font-geist-sans)] md:mb-2">
                     {item.title.split('\n').map((line, i, arr) => (
-                      <span key={i}>{line}{i < arr.length - 1 && <br className="md:hidden" />}</span>
+                      <span key={i}>{line}{i < arr.length - 1 && (index >= 3
+                        ? <><span className="hidden lg:inline xl:hidden"> </span><br className="lg:hidden xl:block" /></>
+                        : <br />)}</span>
                     ))}
                   </h3>
                 </div>

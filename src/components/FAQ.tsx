@@ -22,8 +22,8 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="duvidas" className="py-12 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="duvidas" className="py-12 md:py-16 lg:py-16 xl:py-[88px] bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-6">
         <div className="max-w-3xl mx-auto px-4 md:px-0">
           <div className="reveal text-center mb-6 md:mb-12">
             <h2 className="text-[20px] xs:text-[26px] md:text-[clamp(28px,_3.3vw,_42px)] leading-tight font-normal tracking-[-0.03em] font-[family-name:var(--font-geist-sans)]">

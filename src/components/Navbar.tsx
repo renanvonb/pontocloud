@@ -94,12 +94,12 @@ export default function Navbar() {
           </button>
         </div>
 
-        <ul className="hidden xl:flex items-center gap-[4px] absolute left-1/2 -translate-x-1/2">
+        <ul className="hidden lg:flex items-center gap-[4px] absolute left-1/2 lg:left-[54%] xl:left-[45.5%] -translate-x-1/2">
           {links.map((l) => (
             <li key={l.href}>
               <button
                 onClick={() => scrollToSection(l.href)}
-                className={`inline-flex items-center text-[16px] font-normal font-inter transition-all py-[12px] px-[16px] rounded-md cursor-pointer ${
+                className={`inline-flex items-center whitespace-nowrap text-[16px] font-normal font-inter transition-all py-[12px] px-[12px] xl:px-[16px] rounded-md cursor-pointer ${
                   scrolled
                     ? 'text-foreground hover:text-black'
                     : 'text-foreground hover:bg-white/20 hover:backdrop-blur-md'
@@ -120,9 +120,15 @@ export default function Navbar() {
             style={{ backgroundColor: `rgba(255,255,255,${Math.max(0, 0.20 - scrollY / 400)})`, transition: 'background-color 0.4s ease' }}
             asChild
           >
-            <a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-              <LogIn className="h-4 w-4 shrink-0" />
-              {slideText('Área da revenda', 'revenda')}
+            <a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <span style={{ display: 'block', height: '1.3em', overflow: 'hidden', lineHeight: '1.3' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', lineHeight: '1.3', transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)', transform: hoveredBtn === 'revenda' ? 'translateY(-1.3em)' : 'translateY(0)', willChange: 'transform' }}>
+                  <LogIn className="h-4 w-4 shrink-0" />Área da revenda
+                </span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', lineHeight: '1.3', transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)', transform: hoveredBtn === 'revenda' ? 'translateY(-1.3em)' : 'translateY(0)', willChange: 'transform' }}>
+                  <LogIn className="h-4 w-4 shrink-0" />Área da revenda
+                </span>
+              </span>
             </a>
           </Button>
           <Button
@@ -152,21 +158,23 @@ export default function Navbar() {
     {/* Floating glass menu */}
     <div
       className={cn(
-        'fixed top-[100px] left-6 right-6 z-50 xl:hidden rounded-2xl bg-white/40 shadow-sm backdrop-blur-md overflow-hidden transition-all duration-300',
+        'fixed top-[100px] left-6 right-6 lg:left-auto lg:w-72 z-50 xl:hidden rounded-2xl bg-white/40 shadow-sm backdrop-blur-md overflow-hidden transition-all duration-300',
         sheetOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-3 pointer-events-none'
       )}
     >
       <div className="flex flex-col p-4 gap-1">
-        {links.map((l) => (
-          <button
-            key={l.href}
-            onClick={() => { scrollToSection(l.href); setSheetOpen(false) }}
-            className="text-base font-medium text-foreground/70 hover:text-foreground transition-colors text-center py-3 rounded-xl hover:bg-black/5"
-          >
-            {l.label}
-          </button>
-        ))}
-        <div className="flex flex-col gap-2 mt-2 pt-3 border-t border-black/5">
+        <div className="flex flex-col md:flex-row md:flex-wrap items-stretch md:items-center md:justify-center gap-1 lg:hidden">
+          {links.map((l) => (
+            <button
+              key={l.href}
+              onClick={() => { scrollToSection(l.href); setSheetOpen(false) }}
+              className="text-base font-medium text-foreground/70 hover:text-foreground transition-colors text-center py-3 px-3 rounded-xl hover:bg-black/5"
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-col gap-2 mt-2 pt-3 border-t border-black/5 lg:mt-0 lg:pt-0 lg:border-0">
           <Button variant="ghost" size="lg" className="w-full font-normal text-foreground hover:text-foreground" asChild>
             <a href="https://revendas.dev.ponto.cloud/" target="_blank" rel="noopener noreferrer" onClick={() => setSheetOpen(false)}>
               <LogIn className="h-4 w-4 mr-2 shrink-0" />

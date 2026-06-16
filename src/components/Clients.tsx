@@ -6,7 +6,7 @@ export default function Clients() {
   const doubled = [...logos, ...logos]
 
   return (
-    <section className="relative z-20 py-10 md:py-20 bg-white">
+    <section className="relative z-20 py-10 md:py-16 lg:py-16 xl:py-[88px] bg-white">
       <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12 text-center reveal">
         <h2 className="text-base md:text-lg font-normal tracking-[-0.01em] text-muted-foreground font-[family-name:var(--font-geist-sans)]">
           Empresas que confiam
